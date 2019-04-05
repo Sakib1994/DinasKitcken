@@ -1,0 +1,19 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>@Model.CurrentCategory</h2>
+<form class="form-inline" asp-action="Search" method="post">
+    <div class="form-group">
+        <input type="text" class="form-control" id="search" name="search">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<div class="row">
+    @foreach (Product product in Model.Products)
+    {
+        @Html.Partial("ProductSummary", product)
+    }
+</div>

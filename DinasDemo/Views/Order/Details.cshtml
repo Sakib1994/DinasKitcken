@@ -1,0 +1,80 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+<div class="row">
+    <div class="col-xs-5">
+        <h4>Order</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressLine1)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AddressLine1)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Division)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Division)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.OrderTotal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderTotal)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.OrderPlaced)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderPlaced)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-xs-7">
+                <h4>Products Ordered</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ProductOrder product in Model.Products)
+                        {
+                            @Html.Partial("OrderSummary", product)
+                        }
+                    </tbody>
+                </table>
+            </div>
+</div>

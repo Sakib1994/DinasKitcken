@@ -1,0 +1,14 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>@Model.CurrentCategory</h2>
+
+
+<div class="row">
+    @foreach (Product product in Model.Products)
+    {
+        @Html.Partial("ProductSummary", product)
+    }
+</div>
